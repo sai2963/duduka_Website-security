@@ -35,8 +35,9 @@
     </nav>
     <h3 style="text-align: center; font-family: sans-serif;">Send Money</h3>
     <form action="/Send" method="post">
-      <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+      
         <div class="container">
+          <input type="hidden" name="_csrf" value="<%= csrfToken %>" name="_csrf">
           <div class="mb-3 row">
             <label for="email" class="col-sm-2 col-form-label" required >Email</label>
             <div class="col-sm-10">

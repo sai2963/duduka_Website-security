@@ -7,6 +7,7 @@ const sessionStore=new Mongodbstore({
     uri:'mongodb://localhost:27017',
     databaseName:'authorize'
 })
+const csrf = require('csurf');
 
 const router=require('./routes/route');
 const db=require('./data/database')
@@ -25,10 +26,11 @@ app.use(session({
 
     }
 }));
-const csrf = require('csurf');
-const csrfProtection = csrf();
-app.use(csrfProtection);
+
+app.use(csrf());
+
 app.use(router)
+
 app.set('view engine', 'ejs')
 app.get('/',(req,res)=>{
     res.redirect('login')

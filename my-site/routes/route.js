@@ -39,8 +39,8 @@ router.get("/sendmoney", (req, res) => {
   if (!req.session.isAuthenticated) {
       return res.status(401).send("Authentication Denied");
   }
-  const csrfToken = req.csrfToken();
-  res.render("sendmoney", { req: req, csrfToken: csrfToken });
+ const csrfToken=req.csrfToken();
+  res.render("sendmoney", {  csrfToken:csrfToken,req: req });
 });
 router.post("/signup", async (req, res) => {
   const userdata = req.body;
