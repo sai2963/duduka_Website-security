@@ -37,7 +37,7 @@ router.get("/Home", (req, res) => {
 
 router.get("/sendmoney", (req, res) => {
   if (!req.session.isAuthenticated) {
-      return res.status(401).send("Authentication Denied");
+      return res.status(401).send("Authentication Not Proceeded ");
   }
  const csrfToken=req.csrfToken();
   res.render("sendmoney", {  csrfToken:csrfToken,req: req });
